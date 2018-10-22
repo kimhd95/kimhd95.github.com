@@ -43,79 +43,235 @@
     <div id="main">
       <div class="inner">
         <div style="position: relative; left:280px">
-          <h1 style="color:#dc7e90">ASSIGNMENT &nbsp; #2</h1>
+          <h1 style="color:#dc7e90">ASSIGNMENT &nbsp; #3</h1>
         </div>
         <div class="content" style="padding:0px 260px 0px 260px;">
-          <h1>I. Requirement Analysis</h1>
-          <h2>1. Objective of the Application</h2>
-          <img src="screenshots/hw2/ZPSlogo.jpg" width="250" />
+        	<br><br>
+          <h1>I. Requirement Analysis</h1><br>
+          <h2>1. Objective of the Application</h2><br><br><br>
+          <img src="screenshots/hw3/1-1-1.jpg" width="700" /><br>
           <p>
-			나는 출시된 Photo Organizer 제품들 중 평가가 상당히 좋은 Zoner Photo Studio 라는 제품의 모바일 어플리케이션 버전을 리뷰 대상으로 선정하였다.
-		  </p> <br><br><br>
+			&nbsp;&nbsp;사람들은 사진을 더 쉽게 편집하기 위해, 더 세밀하게 편집하기 위해, 또는 정리를 더 쉽게 하기 위해 Photo Organizer Application을 찾는다. Photo Organizer Application의 전반적인 목표는 사용자가 더욱 쉽게 사진을 편집/관리할 수 있는 플랫폼과 다양한 편집 도구를 제공하는 것이다. 따라서 ‘좋은’ Photo Organizer는 사용자들이 쉽게 적응할 수 있는 사진 편집 환경과 다양한 편집 기능을 지니고 있어야 한다. 이 프로그램은 특히 Novice Level의 사용자에게 초점을 맞춰 고안된 Photo Organizer Application이다. 이 프로그램은 친숙하고 이해하기 쉬운 User Interface를 통해 사용자가 기존의 다른 어플리케이션을 이용했을 때 보다 더욱 쉽게 사진을 관리하고 편집할 수 있도록 도와 주는 것을 목표로 한다. 
+		  </p> <br><br><br><br>
 
-          <img src="screenshots/hw2/1_main.jpg" width="220" />
-          <img src="screenshots/hw2/1_photo.jpg" width="220" />
-          <img src="screenshots/hw2/1_photoedit.jpg" width="220" />
-
-          <br><br>
-          <p>
-            ZPS의 인터페이스를 살펴보면, 우선 앱을 실행시켰을 때 첫번째 사진에 해당하는 메인 화면이 나타난다. 다른 Photo Organizer들과 동일하게 저장소에 저장된 사진을 읽어 Grid-view 형식으로 화면에 나타낸다. 상단에 위치한 탭에 Check, Refresh, Edit, Share 등의 기능이 아이콘 단추 형식으로 제공된다. 사진을 클릭하면 해당 사진만 큰 화면으로 보여주고, 관련된 Title, Date, Resolution, Time 등의 정보를 사진 파일에서 읽어와 하단 탭에 띄운다. 여기서 상단의 Edit 아이콘을 클릭하면 Edit 화면으로 넘어가고, 하단에 Editing Tool들을 아이콘과 텍스트 형식으로 제공한다.
-          </p> <br><br>
-          <img src="screenshots/hw2/detail.jpg" width="600" /><br><br>
-          <p>
-            여기서 앱의 전체적인 인터페이스를 고려했을 때, 위의 화면에서 Date, Resolution, Time 등을 아이콘 형식이 아닌 텍스트 형식으로 보여주는 부분이 일관되지 못하게 느껴진다. Date, Resolution 등과 같은 텍스트 대신 적절한 아이콘으로 대체하면 더욱 일관성 있게 개선될 것이다. 반대로 4개의 아이콘으로 특정 정보를 나타내는 부분이 있는데, 이 부분은 일관성은 있지만 날짜나 픽셀사이즈 등과 달리 f/2.2, 1/2968 등으로 표현되어 있어 ZPS를 처음 사용해보거나 익숙하지 않은 사용자들은 이 부분이 어떤 정보를 나타내는지 이해하지 못할 가능성이 높다. 실제로, 나 또한 저 부분이 어떤 정보를 나타내는 지 이해하지 못하였다. 즉, 여기서는 3번째 사진 하단의 Editing Tools 인터페이스처럼 작은 텍스트 인터페이스도 함께 제공하거나, 약간 inconsistent하더라도 아이콘을 텍스트로 대체하면 novice level의 사용자들도 손쉽게 이해할 수 있게 개선될 것이다. 다른 방법으로는, 아이콘으로 보여주고 해당 아이콘을 클릭하면 Toast메시지를 띄워 해당 정보가 무얼 의미하는지 알려주는 방식으로 개선할 수 있을 것이다.<br><br>
-            User의 관점에서 더욱 구체적으로 살펴보기 위해, Mental Model을 고려해보았다. 대부분의 유저들이 Photo Organizer Application에 대해 가장 기대하는 Task는 아마 사진 편집일 것이다. 따라서 앱이 제공하는 많은 Task가 있지만, 그 중 사진 편집 Task가 이루어지는 과정을 보면 다음과 같다.<br><br>
-            <center><b>편집할 사진 선택 &nbsp;→&nbsp; 편집 단추 클릭 &nbsp;→&nbsp; 편집 &nbsp;→&nbsp; 완료 후 저장</b></center>
-          </p> <br><br>
-
-          <img src="screenshots/hw2/1_main.jpg" width="170" />
-          <img src="screenshots/hw2/1__.jpg" width="170" />
-          <img src="screenshots/hw2/1_1.jpg" width="170" />
-          <img src="screenshots/hw2/1_2.jpg" width="170" />
+          <h2>2. Functional Requirements</h2>
+          <img src="screenshots/hw3/1-2-1.jpg" width="600" />
 
           <br><br>
           <p>
-           	편집할 사진을 선택하는 것은 매우 직관적이고 누구나 쉽게 할 수 있다. 편집할 사진을 선택하고 나면 편집 단추를 클릭해야 하는데, 이는 연필 모양으로 이루어져 있어 대부분 쉽게 알아챌 수 있겠지만 Photo Organizer 자체를 한번도 이용해 보지 않은 novice 수준의 사용자들은 약간의 시행착오가 생길 수 있고 따라서 Training Cost가 발생할 수 있다. 편집 단추를 클릭하면 편집 화면으로 넘어가는데, 여기서는 편집 도구들이 텍스트 형식으로 함께 제공되므로 novice 수준 사용자들도 손쉽게 사용할 수 있다. 편집을 하고 나면 완료를 해야 하는데, 화면을 보면 체크모양의 아이콘만 표시되지만 Editing bar 이외에 어떠한 인터페이스도 없기 때문에 완료를 의미한다는 것을 직관적으로 알 수 있다. 편집을 완료하고 나면 마찬가지로 체크 아이콘을 눌러 저장을 할 수 있다.
+            <b>Requirement #1:</b><br> 
+			&emsp;<i>Title:</i> 사진 편집<br>
+			&emsp;<i>Priority:</i> 매우 높음<br>
+			&emsp;<i>Description:</i> 자르기, 회전, 필터링 등의 기본적인 편집 기능 뿐만 아니라 Lights, Exposure, Clarity 등을 세밀하게 설정할 수 있는 고급 편집 기능 등이 이에 해당한다. 더 나아가, 사진 자동 보정, 흔들림 보정 등의 최신기술을 적용한 편집 기능 또한 이에 포함될 수 있을 것이다. 이 기능은 Photo Organizer가 반드시 지녀야 하는 기능이므로 필수적으로 구현되어야 한다.<br>
+			&emsp;<i>Precondition:</i> <u>사진 불러오기</u> 기능 지원<br>
+			&emsp;<i>Postcondition:</i> <u>사진 저장</u> 기능 지원<br>
+          </p>
+
+          <p>
+            <b>Requirement #2:</b><br> 
+			&emsp;<i>Title:</i> 사진 불러오기/저장<br>
+			&emsp;<i>Priority:</i> 매우 높음<br>
+			&emsp;<i>Description:</i> 편집할 사진을 선택해 불러오는 기능과 편집한 사진을 저장하는 기능. 사진 편집 기능이 제대로 작동하기 위해선 이 기능들이 필수적으로 제공되어야 한다.<br>
+          </p>
+
+          <p>
+            <b>Requirement #3:</b><br> 
+			&emsp;<i>Title:</i> 사진 정렬<br>
+			&emsp;<i>Priority:</i> 높음<br>
+			&emsp;<i>Description:</i> 저장된 사진들을 정렬하는 기능. 이는 프로그램이 자동으로 날짜 순으로 정렬하고, 사용자가 원한다면 수동으로 원하는 기준(제목, 크기, 날짜, 태그 등)에 따라 사진들을 정렬할 수 있도록 도와줄 것이다.<br>
+          </p>
+
+          <img src="screenshots/hw3/1-2-4.jpg" width="600" />
+          <p>
+            <b>Requirement #4:</b><br> 
+			&emsp;<i>Title:</i> 사진 태그<br>
+			&emsp;<i>Priority:</i> 중간<br>
+			&emsp;<i>Description:</i> 사용자가 사진에 원하는 태그를 설정하여 태그에 따라 Organizing 할 수 있도록 지원하는 기능.<br>
+          </p><br><br><br><br>
+
+
+
+          <h2>3. User Interface Requirements</h2><br>
+          <h3>(1) Functional UI Requirements</h3>
+
+          <p>
+            <b>Requirement #1:</b><br> 
+			&emsp;<i>Title:</i> 전체 사진/앨범 목록을 다양한 방식으로 보여주는 기능<br>
+			&emsp;<i>Priority:</i> 낮음<br>
+			&emsp;<i>Description:</i> 사용자가 직접 전체 사진/앨범 목록을 보여주는 방식(큰 아이콘/ 작은 아이콘/ 목록형 등)을 선택하고, 그에 맞게 View를 제공하는 기능. <br>
+          </p>
+
+          <p>
+            <b>Requirement #2:</b><br> 
+			&emsp;<i>Title:</i> 사진 선택 시 자동 화면 맞춤 기능<br>
+			&emsp;<i>Priority:</i> 높음<br>
+			&emsp;<i>Description:</i> 사용자가 사진을 선택하면 해당 사진을 화면 크기에 맞춰 보여줌으로써 사용자는 사진을 더 편하고 자세하게 둘러보거나 편집할 수 있다.<br>
           </p> <br><br>
-          <h4> 결론 </h4>
-          <p>
-           	<b>Inconsistency</b> : 아이콘이 아닌 텍스트를 사용하여 앱의 전체적인 Consistency를 해침. 아이콘으로 대체하거나 텍스트 사이즈와 폰트를 조정하여 간단히 해결할 수 있을 것으로 보임.<br><br>
-           	<b>Necessarity to learn for novices</b> : 앱에 익숙하지 않은 초심자 레벨의 사용자들이 이해하기 어려운 아이콘이 사용됨. 텍스트로 대체하거나 info버튼을 만들어 해결할 수 있을 것으로 보임.
-          </p> <br><br><br><br><br>
 
-		  <h2>2. Decision Tree</h2><br>
-          <p>
-          	Zoner Photo Studio 앱은 사진편집 이외에도 사진 백업, 동기화, postcard 생성 등 다양한 기능을 제공하지만, Decision Tree가 너무 커지는 것을 막기 위해 편집 작업에 포커스를 맞춰 Decision Tree를 그려보았다.
-          </p> <br><br>
-          <img src="screenshots/hw2/dt.jpg" width="700" /> <br><br><br><br><br><br>
+          <h3>(2) Non-functional UI Requirements</h3>
 
-          <h2>3. Apply the GOMS Methodology</h2><br>
           <p>
-        	ZPS 앱에서 사진편집 작업의 실행시간을 GOMS Methodology에 따라 예측해 볼 것이다. 여기서 예측한 시간과 실제 걸리는 시간을 비교하기 위해 Shadows 옵션을 편집하는 작업을 예시로 비교를 진행하겠다. 편집할 사진을 선택하는 작업은 상황에 따라 크게 달라질 수 있어 사진선택 이후의 과정만을 고려하였다. 디바이스는 스마트폰이라고 가정하였고, 모바일 환경이라 마우스 이동 대신 손가락을 사용하므로 손가락을 이동하는데 걸리는 시간을 H라고 가정하였다.<br><br>
-        	<b>
-			1. 편집 아이콘으로 손가락 이동 (H)<br>
-			2. 편집 아이콘 터치 (B)<br>
-			3. 어떻게 편집할 지 생각 (M)<br>
-			4. 하단 bar에서 Shadows아이콘이 나올 때까지 스크롤 (3H로 예측)<br>
-			5. Shadows아이콘으로 손가락 이동 (H)<br>
-			6. Shadows아이콘을 터치 (B)<br>
-			7. 얼마나 조절할 지 생각 (M)<br>
-			8. Shadows 게이지 조절 버튼으로 손가락 이동 (H)<br>
-			9. 게이지 조절 (H)<br>
-			10. Complete아이콘으로 손가락 이동 (H)<br>
-			11. Complete 아이콘 터치 (B)<br>
-			12. Save 아이콘으로 손가락 이동 (H)<br>
-			13. Save 아이콘 터치 (B)<br>
-			14. 저장완료까지 기다림 (W(1))
-			</b> <br><br>
-			이를 토대로 실행시간을 예측 해보면 9H + 4B + 2M + W(1) = 3.6 + 0.4 + 2.4 + 1.0 = 7.4 초 라는 결과가 나온다. 실제로 스마트폰에서 위의 작업에 대한 실행시간을 측정해 보았더니 8.06 초라는 예측과 비슷한 결과가 나왔다.
-		  </p> <br><br><br><br><br>
+            <b>Requirement #1:</b><br> 
+			&emsp;<i>Title:</i> 보기 쉬운 User Interface 사용<br>
+			&emsp;<i>Priority:</i> 중간<br>
+			&emsp;<i>Description:</i> 인터페이스가 텍스트 형식 또는 아이콘 형식으로만 제공된다면 유저는 Photo Organizer를 사용할 때 매우 복잡하고 어렵게 느껴질 것이다. 예를 들어, 사진 편집의 모든 세부적인 기능들(자르기, 회전, 명암 설정, 효과, Tint 설정 등)을 텍스트 형식의 인터페이스로만 제공한다면, 사용자들은 알아보기도 힘들 뿐만 아니라 프로그램이 매우 어렵고 딱딱하다고 느낄 것이다. 반대로 아이콘 형식으로만 제공된다면, 아이콘이 어떤 기능에 해당하는 지 전부 알기가 힘들기 때문에 원하는 기능을 찾으려면 여러 번의 시행착오를 겪어야 할 것이다. 따라서 텍스트 형식과 아이콘 형식을 균형 있게 사용하여 사용자들이 사용하기 쉽다는 느낌을 받을 수 있도록 보장해야 한다.<br>
+          </p>
 
-		  <h2>4. S Pen of the Samsung Galaxy Note 9</h2><br>
-		  <img src="screenshots/hw2/note9.jpg" width="600" />
+          <p>
+            <b>Requirement #2:</b><br> 
+			&emsp;<i>Title:</i> 적절한 텍스트 크기/폰트 사용<br>
+			&emsp;<i>Priority:</i> 중간<br>
+			&emsp;<i>Description:</i> 적절한 크기와 폰트의 텍스트를 사용해 유저가 쉽게 텍스트를 읽을 수 있어야 한다. 텍스트 사이즈가 너무 작으면 유저가 글자를 읽기 힘들 것이고, 너무 크면 unbalance하게 보일 것이다. 텍스트 폰트의 경우 기본적인 폰트를 사용하면 유저가 글자를 알아보기는 문제가 없지만 딱딱하고 재미없게 느껴질 수 있다. 반대로 개성 있는 폰트를 채택하면 유저에게 딱딱하지 않은 긍정적인 느낌을 줄 수 있을 것이다. 다만 폰트의 개성이 글씨를 알아보기 힘들 정도로 지나치면 안될 것이다.<br>
+          </p> <br><br><br><br>
+
+          <h2>4. Other Considerations</h2><br>
+          <h3>(1) Usage Context</h3>
+
+          <h4>i. 스마트폰의 확산</h4>
+          <img src="screenshots/hw3/1-4-1-1.jpg" width="600" />
+          <p>
+          	&nbsp;&nbsp;오늘날 스마트폰의 보급이 엄청나게 증가하면서, 이제는 누구나 원할 때 스마트폰으로 손쉽게 사진을 찍을 수 있는 환경이 되었다. 젊은 사람들 뿐만 아니라 어린이나 노인들 또한 사진에 일상을 담는 것이 이상하지 않은 시대가 되었다. 스마트폰이 전통적인 카메라의 자리를 대체하면서, 사람들은 사진을 찍고 관리하는 것에 점점 친숙해지고, 이에 따라 사진 관리 프로그램에 대한 수요도 증가하고 있다.
+          </p><br>
+
+          <h4>ii. 사진 촬영 및 편집 기술의 발전</h4>
+          <img src="screenshots/hw3/1-4-1-2.jpg" width="600" />
+          <p>
+          	&nbsp;&nbsp;사진 촬영 기술이 발달하면서, 고가의 장비가 없는 사람들도 손쉽게 고화질의 사진을 찍을 수 있게 되었다. 또한 편집 기술의 발달로 사람들은 사진을 원하는 대로 손쉽게 사진을 편집할 수 있게 되었다.
+          </p><br>
+
+          <h4>iii. SNS의 확산</h4>
+          <img src="screenshots/hw3/1-4-1-3.jpg" width="600" />
+          <p>
+          	&nbsp;&nbsp;SNS의 발달로 인해 셀카를 찍고 일상을 공유하는 것이 유행처럼 번지면서, 단순히 사진을 분류하고 정리하는 것에서 찍은 사진을 예쁘게 편집하기 위해 Photo Organizer 프로그램을 찾는 사람들이 늘어나게 되었다.
+          </p><br><br>
+
+
+          <h3>(2) Target User Group</h3>
+          <p>
+          	&nbsp;&nbsp;이 프로그램의 Target User Group은 Novice Level의 사용자들이다. 즉, Photo Organizer 자체를 처음 접해보거나 사용하는데 미숙한 사람들을 대상으로 한다.
+          </p><br><br>
+
+          <h3>(3) Platform</h3>
+          <p>
+          	&nbsp;&nbsp;이 프로그램은 PC의 Window OS 환경과 Mobile Device의 Android 환경에서 사용하도록 고안되었다.
+          </p>
+
+
+
+
+
+          <br><br><br><br><br><br><br>
+
+          <h1>II. User Analysis</h1><br>
+          <h2>1. User Interviews</h2>
+
+          <h3>(1) 인터뷰 개요</h3>
+          <img src="screenshots/hw3/introduction.png" width="600" />
+          <br><br>
+
+          <h3>(2) 인터뷰 참가 동의서</h3>
+          <img src="screenshots/hw3/agreement.jpg" width="600" />
+          <br><br>
+
+          <h3>(3) 인터뷰 영상</h3>
+          <video src="screenshots/hw3/interview1.mp4" width="600" controls></video>
+          <video src="screenshots/hw3/interview2.mp4" width="600" controls></video>
+          <br><br><br><br>
+
+
+          <h2>2. Direct User Requirements</h2>
+          <p>
+            <b>Requirement #1:</b><br> 
+			&emsp;<i>Title:</i> 인물/동물 별 자동 분류 기능<br>
+			&emsp;<i>Description:</i> 얼굴 인식 및 사물 인식 기술을 바탕으로 사진에 있는 사람 얼굴 또는 동물을 인식해 어떤 인물/동물인지 판단하여 자동으로 분류해주는 기능 <br>
+          </p>
+          <p>
+            <b>Requirement #2:</b><br> 
+			&emsp;<i>Title:</i> SNS 자동 업로드<br>
+			&emsp;<i>Description:</i> 사진을 촬영하면 사용자에게 업로드 여부를 묻는 메시지를 띄우고, 사용자가 승인하면 자동으로 SNS에 업로드 해주는 기능<br>
+          </p> 
+          <p>
+            <b>Requirement #3:</b><br> 
+			&emsp;<i>Title:</i> 사진첩 테마 제공<br>
+			&emsp;<i>Description:</i> 사용자가 사진첩을 생성할 때 기본적으로 사용할 수 있는 사진첩 테마를 여러 개 제공한다.<br>
+          </p>
+          <p>
+            <b>Requirement #4:</b><br> 
+			&emsp;<i>Title:</i> 장소/날짜 별 자동 분류<br>
+			&emsp;<i>Description:</i> 사진이 촬영된 장소 및 날짜에 따라 자동으로 분류하는 기능<br>
+          </p><br><br><br><br>
+
+
+          <h2>3. Cognitive/Ergonomic Requirements</h2>
+          <p>
+            <b>Requirement #1:</b><br> 
+			&emsp;<i>Title:</i> 쉽다는 느낌을 주는 UI 제공<br>
+			&emsp;<i>Description:</i> 사용자에게 쉽게 느껴지도록 User Interface를 최대한 간단하게 구성한다.<br>
+          </p>
+          <p>
+            <b>Requirement #2:</b><br> 
+			&emsp;<i>Title:</i> 사진에 집중할 수 있는 배경색 사용<br>
+			&emsp;<i>Description:</i> 사용자가 사진에 집중할 수 있도록 흰색이나 검은색 같은 기본적이고 튀지 않는 색을 배경색으로 채택한다.<br>
+          </p><br><br><br><br>
+
+
+          <h2>4. Usage Scenarios</h2>
+          <p>
+          	<b>[시나리오 1]</b><br>
+          	1. 스마트폰 카메라로 셀카를 찍자 스마트폰 화면에 찍은 사진이 어떤 앨범에 저장되었는 지 알려주는 메세지가 표시된다. (Background로 실행중인 상태)
+          	<br>
+			2. 표시된 메세지를 터치하여 Photo Organizer Application을 실행시킨다.
+			<br>
+			3. 앱에서 '최근 추가된 사진' 탭에서 방금 찍은 사진을 선택하여 전체 화면으로 띄운다.
+			<br>
+			4. 사진 편집 아이콘을 클릭하고 얼굴 인식 버튼을 누르자, 앱이 자동으로 얼굴을 인식하고, 뷰티 효과를 선택하여 사진을 편집한다.
+			<br>
+			5. 편집한 사진을 저장하자, 원본 사진을 저장할 것인지 묻는 메세지가 표시된다.
+			<br>
+			6. 메세지에서 ‘아니오’를 선택하고 SNS 업로드 아이콘을 터치하자 스마트폰 화면에 성공적으로 업로드가 완료됐다는 메세지가 표시된다.
+			<br>
+			7. 홈 버튼을 눌러 어플리케이션을 종료한다.
+			<br>
+		  </p>
 		  <p>
-			Galaxy Note 9의 S Pen은 오직 입력만 가능한, Communicative I/O device이다. 스마트폰 본체와 S Pen은 블루투스로 무선 연결되어 있어 S Pen에서 Signal (Interrupt)를 보내면 본체에서 인식이 가능하다. S Pen에서 버튼을 눌러 인터럽트를 발생시키면, 해당 인터럽트는 블루투스를 통해 본체로 전달된다. 그와 동시에 Interrupt Controller가 인터럽트가 발생했음을 인식하여 Interrupt Handler에게 요청을 보낸다. Interrupt Handler는 미리 정해진 처리 루틴에 따라 인터럽트를 처리한다.
-		  </p> <br>
+          	<b>[시나리오 2]</b><br>
+          	1. 웹에서 연예인 사진을 다운받자 컴퓨터 화면에 사진이 추가되었다는 팝업창이 표시된다. (Background로 실행중인 상태)
+          	<br>
+			2. 팝업창을 클릭하여 Photo Organizer Application을 실행한다.
+			<br>
+			3. '최근 추가된 사진' 목록에서 방금 저장한 사진을 선택하여 전체 화면으로 띄운다.
+			<br>
+			4. 인물분류 버튼을 클릭하자 프로그램이 인물을 파악하여 인물정보를 사진파일에 자동으로 tagging한다. (다운받은 사진 속 인물이 이전에 저장했던 인물이라고 가정)
+			<br>
+			5. 프로그램을 다시 백그라운드로 돌리고 웹 서핑을 계속한다.
+			<br>
+		  </p><br><br><br><br>
+
+
+		  <h2>5. Interaction Model</h2>
+		  <p>
+          	<b>Task Model #1: 새로운 사진첩 추가</b><br>
+          	[Action Sequence]<br>
+			1. 아이콘을 클릭하여 프로그램을 실행시킨다.<br>
+			2. 사진첩 생성 버튼을 클릭한다.<br>
+			3. 사진첩 테마를 적용할 건지 묻는 창에서 ‘예’를 선택한다.<br>
+			4. 적용할 테마를 선택한다.<br>
+			5. 사진첩 이름을 입력한다.<br>
+			6. 사진첩 추가 버튼을 클릭한다.<br>
+		  </p>
+		  <p>
+          	<b>Task Model #2: 인물사진을 선택해 뷰티 효과 적용</b><br>
+          	[Action Sequence]<br>
+			1. 아이콘을 클릭하여 프로그램을 실행시킨다.<br>
+			2. 사진 목록에서 편집할 인물 사진을 선택한다.<br>
+			3. 편집 버튼을 클릭한다.<br>
+			4. 얼굴에 뷰티 효과를 적용하기 위해 얼굴 인식 버튼을 클릭한다.<br>
+			5. 편집 도구 중 뷰티 효과에 해당하는 아이콘을 클릭한다.<br>
+			6. 뷰티 효과 종류를 선택한다.<br>
+			7. 편집 완료 버튼을 누른다.<br>
+			8. 저장하기 버튼을 누른다.<br>
+			9. 편집한 사진을 저장할 사진첩을 선택한다.<br>
+		  </p><br><br><br><br>
         </div>
       </div>
 	 </div>
