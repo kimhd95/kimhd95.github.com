@@ -1,0 +1,586 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title> HCI 3-2 </title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		
+	</head>
+
+	<body>
+		<div id="wrpper">
+    		<header id="header">
+      			<div class="inner">
+        			<!-- Logo -->
+        			<div style="position: relative; left:280px">
+         				<a href="index.html" class="logo">
+            				<span class="symbol"><img src="images/logo.svg" alt="" /></span>
+          				</a>
+        			</div>
+      			</div>
+    		</header>
+    <div>
+		<!-- Main -->
+		<script language="javascript">
+			function swap(pageID) {
+					var page = document.getElementById(pageID);
+					page.style.height = (page.style.visibility == "hidden") ? "auto" : "0px";
+					page.style.visibility = (page.style.visibility == "hidden") ? "visible" : "hidden";
+				}
+				
+			function display() {
+
+				// 1-이름
+				var LastName = document.getElementById("input_lastname").value;
+				var MiddleName = document.getElementById("input_middlename").value;
+				var FirstName = document.getElementById("input_firstname").value;
+
+				// 3-연락처
+				var EmailAddress = document.getElementById("input_emailaddress").value;
+				var PhoneNumber_1 = document.getElementById("input_phonenumber1").value;
+				var PhoneNumber_2 = document.getElementById("input_phonenumber2").value;
+				var PhoneNumber_3 = document.getElementById("input_phonenumber3").value;
+				var OfficeNumber_1 = document.getElementById("input_officenumber1").value;
+				var OfficeNumber_2 = document.getElementById("input_officenumber2").value;
+				var OfficeNumber_3 = document.getElementById("input_officenumber3").value;
+				var Address_1 = document.getElementById("input_address1").value;
+				var Address_2 = document.getElementById("input_address2").value;
+
+				// 4-목표
+				var CareerGoal = document.getElementById("input_careergoal").value;
+
+				// 5-교육
+				var EducationEntries = "";
+				var edu_len = $('#edu_entry tbody tr').length;
+				for(i = 1; i < edu_len + 1; i++) {
+					var id_school = "input_school" + i;
+					EducationEntries += document.getElementById(id_school).value;
+					var id_major = "input_major" + i;
+					EducationEntries += document.getElementById(id_major).value;
+					var id_duration1 = "input_duration1_edu" + i;
+					EducationEntries += " [" + document.getElementById(id_duration1).value;
+					var id_duration2 = "input_duration2_edu" + i;
+					EducationEntries +=  " - " + document.getElementById(id_duration2).value + "]<br>";
+				}
+
+				// 6-경험
+				var ExperienceEntries = "";
+				var exp_len = $('#exp_entry tbody tr').length;
+				for(i = 1; i < exp_len + 1; i++) {
+					var id_organization = "input_organization" + i;
+					ExperienceEntries += document.getElementById(id_organization).value + " ";
+					var id_duties = "input_duties" + i;
+					ExperienceEntries += document.getElementById(id_duties).value;
+					var id_duration1 = "input_duration1_exp" + i;
+					ExperienceEntries += " [" + document.getElementById(id_duration1).value;
+					var id_duration2 = "input_duration2_exp" + i;
+					ExperienceEntries += " - " + document.getElementById(id_duration2).value + "]<br>";
+				}
+
+				// 7-기술
+				var SkillsEntries = "";
+				var skill_len = $('#skills_entry tbody tr').length;
+				for(i = 1; i < skill_len+1; i++) {
+					var id_certificates = "input_certificates" + i;
+					SkillsEntries += document.getElementById(id_certificates).value;
+					var id_agency = "input_agency" + i;
+					SkillsEntries += "   (주최기관: " + document.getElementById(id_agency).value + ")";
+					var id_acquisition = "input_acquisition" + i;
+					SkillsEntries += "         [취득일자: " + document.getElementById(id_acquisition).value +"]<br>";
+				}
+				
+				// 8. Others
+				var HomePage = document.getElementById("input_homepage").value;
+
+				// Setting
+				var FontSize = document.getElementById("input_fontsize").value;
+				var FontBold = document.getElementById("input_bold").getAttribute("checked");
+				var FontItalic = document.getElementById("input_italic").getAttribute("checked");
+				var FontUnderline = document.getElementById("input_underline").getAttribute("checked");
+				var FontColor = document.getElementById("input_fontcolor").value;
+				var SheetColor = document.getElementById("input_sheetcolor").value;
+				
+				
+
+
+				/* * * * * * * * * * * Resume Setting * * * * * * * * * * * * * * */
+				document.getElementById("resume_name").innerHTML = LastName + " " + MiddleName + " " + FirstName;
+
+				document.getElementById("resume_email").innerHTML = EmailAddress; 
+				document.getElementById("resume_phone").innerHTML = PhoneNumber_1 + "-" + PhoneNumber_2 + "-" + PhoneNumber_3;
+				document.getElementById("resume_office").innerHTML = OfficeNumber_1 + "-" + OfficeNumber_2 + "-" + OfficeNumber_3;
+				
+				document.getElementById("resume_address").innerHTML = Address_1 + " " + Address_2;
+				document.getElementById("resume_homepage").innerHTML = HomePage;
+				
+
+				document.getElementById("resume_obj").innerHTML = CareerGoal;
+				document.getElementById("resume_edu").innerHTML = EducationEntries;
+				document.getElementById("resume_exp").innerHTML = ExperienceEntries;
+				document.getElementById("resume_skill").innerHTML = SkillsEntries;
+				
+				document.getElementById("resume").style.fontSize = FontSize;
+				document.getElementById("resume").style.color = FontColor;
+				document.getElementById("resume").style.backgroundColor = SheetColor;
+				/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+				
+				
+				
+				swap("section");
+				swap("resume");
+			}
+		</script>
+
+
+
+
+
+		<section style="margin:30px">
+			<h1> Resume Authoring </h1><br><br>
+			<div id="section">
+				<table>
+					<tbody>
+						<tr>
+							<td>
+								<h3> 1. Name </h3>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								&nbsp;&nbsp;1) Last Name
+							</td>
+							<td>
+								<input type="text" id="input_lastname" size="15" value>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								&nbsp;&nbsp;2) Middle Name (Optional)
+							</td>
+							<td>
+								<input type="text" id="input_middlename" size="15" value>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								&nbsp;&nbsp;3) First Name
+							</td>
+							<td>
+								<input type="text" id="input_firstname" size="15" value>
+							</td>
+						</tr>
+
+						<!-- 22222222222222222222222222222222 -->
+						<script type="text/javascript">
+							function uploadImage(value) {
+								if(value.files && value.files[0]) {
+									var reader = new FileReader();
+									reader.onload = function (e) {
+										$('#resume_photo').attr('src', e.target.result);
+									}
+									reader.readAsDataURL(value.files[0]);
+								}
+							}
+						</script>
+						<tr>
+							<td>
+								<br>
+								<h3> 2. Upload Image </h3>
+							</td>
+							<td>
+								<br>
+								<input type="file" id="input_image" onchange="uploadImage(this);">
+							</td>
+						</tr>
+
+						<!--3333333333333333333333333333333 -->
+						<tr>
+							<td>
+								<br>
+								<h3> 3. Contact Information</h3>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								&nbsp;&nbsp;1) Email Address
+							</td>
+							<td>
+								<input type="text" id="input_emailaddress" size="27" value placeholder="example@email.com">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								&nbsp;&nbsp;2) Phone Number
+							</td>
+							<td>
+								<select id="input_phonenumber1">
+									<option value="">::선택::</option>
+									<option value="02">02</option>
+									<option value="010">010</option>
+									<option value="011">011</option>
+									<option value="016">016</option>
+									<option value="031">031</option>
+									<option value="032">032</option>
+									<option value="070">070</option>
+								</select>
+								-
+								<input type="text" id="input_phonenumber2" size="3" maxlength="4" value>
+								-
+								<input type="text" id="input_phonenumber3" size="3" maxlength="4" value>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								&nbsp;&nbsp;3) Office Number (Optional)
+							</td>
+							<td>
+								<select id="input_officenumber1">
+									<option value="">::선택::</option>
+									<option value="02">02</option>
+									<option value="010">010</option>
+									<option value="011">011</option>
+									<option value="016">016</option>
+									<option value="031">031</option>
+									<option value="032">032</option>
+									<option value="070">070</option>
+								</select>
+								-
+								<input type="text" id="input_officenumber2" size="3" maxlength="4" value>
+								-
+								<input type="text" id="input_officenumber3" maxlength="4" size="3" value>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								&nbsp;&nbsp;4) Address
+							</td>
+							<td>
+								<input type="text" id="input_address1" size="40" value placeholder="OO시 OO구">
+							</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>
+								<input type="text" id="input_address2" size="40" value placeholder="상세주소 입력">
+							</td>
+						</tr>
+
+						<!-- 44444444444444444444444444444444 -->
+						<tr>
+							<td>
+								<h3> 4. Career Goal / Objective </h3>
+							</td>
+							<td>
+								<br><br><br><br>
+								<textarea id="input_careergoal" rows="8" cols="50" placeholder="내용 입력."></textarea>
+							</td>
+						</tr>
+
+						<!-- 55555555555555555555555555 -->
+						<tr>
+							<td>
+								<br>
+								<h3> 5. Education </h3>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="button" id="button_add_education" onclick="button_edu_click();" value="+">
+								<script>
+									function button_edu_click() {
+										var entryNum = $('#edu_entry tbody tr').length + 1;
+										var entry = "<tr>";
+										entry += "<td><input type=\"text\" id=\"input_school" + entryNum + "\" size=\"20\"/></td>"; 
+										entry += "<td><input type=\"text\" id=\"input_major" + entryNum + "\" size=\"20\"/></td>"; 
+										entry += "<td><input type=\"date\" id=\"input_duration1_edu" + entryNum + "\" size=\"20\"/></td>";
+										entry += "<td><input type=\"date\" id=\"input_duration2_edu" + entryNum + "\" size=\"20\"/></td>"; 
+										entry += "</tr>";
+										$('#edu_entry').append(entry);
+									}
+								</script>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+	
+				<table id="edu_entry">
+					<thead>	
+						<td>School</td>
+						<td>Major</td>
+						<td>Duration</td>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<input type="text" id="input_school1" size="20" value>
+							</td>
+							<td>
+								<input type="text" id="input_major1" size="20" value>
+							</td>
+							<td>
+								<input type="date" id="input_duration1_edu1" size="20" value>
+							</td>
+							<td>
+								<input type="date" id="input_duration2_edu1" size="20" value>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+					
+				<!-- 6666666666666666666 -->
+				<table>
+					<tbody>
+						<tr>
+							<td>
+								<br><h3> 6. Experience </h3>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="button" id="button_add_experience" onclick="button_exp_click();" value="+">
+
+								<script>
+									function button_exp_click() {
+										var entryNum = $('#exp_entry tbody tr').length + 1;
+										var entry = "<tr>";
+										entry += "<td><input type=\"text\" id=\"input_organization" + entryNum + "\" size=\"20\"/></td>";
+										entry += "<td><input type=\"text\" id=\"input_duties" + entryNum + "\" size=\"20\"/></td>";
+										entry += "<td><input type=\"date\" id=\"input_duration1_exp" + entryNum + "\" size=\"20\"/></td>";
+										entry += "<td><input type=\"date\" id=\"input_duration2_exp" + entryNum + "\" size=\"20\"/></td>" + "</tr>"; 
+										$('#exp_entry').append(entry);
+									}
+								</script>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<table id="exp_entry">
+					<thead>	
+						<td>Organization</td>
+						<td>Duties</td>
+						<td>Duration</td>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<input type="text" id="input_organization1" size="20" value>
+							</td>
+							<td>
+								<input type="text" id="input_duties1" size="20" value>
+							</td>
+							<td>
+								<input type="date" id="input_duration1_exp1" size="20" value>
+							</td>
+							<td>
+								<input type="date" id="input_duration2_exp1" size="20" value>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+	
+				<table>
+					<tbody>
+					<!-- 7777777777777777777777777 -->
+						<tr>
+							<td>
+								<br>
+								<h3> 7. Skills </h3>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="button" id="button_add_skills" onclick="button_skills_click();" value="+">
+
+								<script>
+									function button_skills_click() {
+										var entryNum = $('#skills_entry tbody tr').length + 1;
+										var entry = "<tr>";
+										entry += "<td><input type=\"text\" id=\"input_certificates" + entryNum + "\" size=\"30\"/></td>"; 
+										entry += "<td><input type=\"date\" id=\"input_acquisition" + entryNum + "\" size=\"20\"/></td>";
+										entry += "<td><input type=\"text\" id=\"input_agency" + entryNum + "\" size=\"20\"/></td>";
+										entry += "</tr>";
+										$('#skills_entry').append(entry);
+									}
+								</script>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+		
+				<table id="skills_entry">
+					<thead>	
+						<td>Certificates</td>
+						<td>Date of Acquisition&nbsp;</td>
+						<td>Host Agency</td>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<input type="text" id="input_certificates1" size="30" value>
+							</td>
+							<td>
+								<input type="date" id="input_acquisition1" size="20" value>
+							</td>
+							<td>
+								<input type="text" id="input_agency1" size="20" value>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<table>
+					<tbody>
+					<!-- 88888888888888888888888888 -->
+						<tr>
+							<td>
+								<br>
+								<h3> 8. Others </h3>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Personal Homepage
+							</td>
+							<td>
+								<input type="text" id="input_homepage" size="45" value placeholder="  http://kimhd95.github.io/">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<br><h3> [Format / Style Options] </h3>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								&nbsp;&nbsp;
+								1) Font Size
+							</td>
+							<td>
+								<input type="number" id="input_fontsize" size="3" value=15>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								&nbsp;&nbsp;
+								2) Emphasis<br><br>
+							</td>
+							<td>
+								<br>
+								<input type="checkbox" id="input_bold">
+								<b>Bold</b>&nbsp;
+								<input type="checkbox" id="input_italic" value="italic">
+								<i>Italic</i>&nbsp;
+								<input type="checkbox" id="input_underline" value="underline">
+								<u>Underline</u>
+								<br><br>
+								<input type="color" id="input_fontcolor">
+								Font Color
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<br>
+								&nbsp;&nbsp;
+								3) Background Sheet
+							</td>
+							<td>
+								<br>
+								<input type="color" id="input_sheetcolor" value="#FFFFFF">
+								Sheet Color
+							</td>
+						</tr>
+					
+					<!-- @@@@@@@@@@@@@@@@@@@@@ -->
+						<tr>
+							<td>
+								<br><br>
+								<input type="button" id="button_submit" onclick="display();" value="Submit">
+							</td>
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+
+
+
+
+
+
+
+
+		<section id="resume" style="border: 5px solid orange; width: 700px;  margin: 30px auto; visibility: hidden;">
+			<div style="text-align: center;">
+				<h1><br><b><u>Resume</u></b><br><br></h1>
+			</div>
+			<div>
+				<div style="display:inline-block">
+					<div style="float: left; width: 480px">
+						<br>
+						<span><i>&nbsp; Name : </i></span><b><span id="resume_name" style="margin: 1px">Name</span></b><br>
+						<hr><br>
+						<span><i>&nbsp; E-mail : </i></span><span id="resume_email">Email</span><br>
+						<span><i>&nbsp; Phone Number : </i></span><span id="resume_phone">Phone</span><br>
+						<span><i>&nbsp; Office Number : </i></span><span id="resume_office">Office</span><br>
+						<span><i>&nbsp; Address : </i></span><span id="resume_address">Address</span><br>
+						<span><i>&nbsp; Homepage : </i></span><span id="resume_homepage">Homepage</span><br>
+						
+					</div>
+					<div align="right" style="width: 200px; height: auto; float: right; margin: 5px 10px">
+						<div align="right">
+							<img id="resume_photo" src="" alt="사진" width="200px" /></div>
+					</div>
+				</div>
+				<hr>
+
+
+				<br><br>				
+				<span><b>&nbsp; Objective</b></span><br>
+				<hr>
+				<span>&nbsp;<p id="resume_obj">.</p></span>
+				<hr>
+
+
+				<br><br>
+				<span><b>&nbsp; Education</b></span>
+				<hr>
+				<p id="resume_edu">.</p>
+				<hr>
+
+
+				<br><br>
+				<span><b>&nbsp; Experience </b></span>
+				<hr>
+				<p id="resume_exp">.</p>
+				<hr>
+
+
+				<br><br>
+				<span><b>&nbsp; Skills</b></span>
+				<hr>
+				<p id="resume_skill">.</p>
+				<hr>
+				<br><Br><br>
+			</div>
+		</section>
+	</div>
+	</div>
+	</body>
+	
+	<!-- Scripts -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+</html>
+
+
+
+
+
+
+
+
