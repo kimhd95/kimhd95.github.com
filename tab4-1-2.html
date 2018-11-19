@@ -1,0 +1,141 @@
+
+<html>
+    <head>
+        <title> HCI 4-1-2 </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+        
+    </head>
+
+    <body>
+        <div id="wrpper">
+            <header id="header">
+                <div class="inner">
+                    <!-- Logo -->
+                    <div style="position: relative; left:280px">
+                        <a href="index.html" class="logo">
+                            <span class="symbol"><img src="images/logo.svg" alt="" /></span>
+                        </a>
+                    </div>
+                </div>
+            </header>
+    <div>
+        <!-- Main -->
+        <canvas id="canvas"></canvas>
+        <script>
+            var canvas = document.getElementById('canvas');
+            var ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            // 트리 생성자
+            Tree = function(tree_id, title) {
+                this.tree_id = tree_id;
+                this.label = title;
+                this.visible = false;
+                this.node = new Array();
+                this.node_count = 0;
+                this.jointUpper = [0, 0];
+                this.jointLower = [0, 0];
+            }
+            
+            function create_root(tree_id, GUI_Element) {
+                return new Tree("tree_id", GUI_Element);
+            }
+            function add_node(tree, added_node) {
+                tree.node[added_node.tree_id] = added_node;
+                tree.node_count++;
+            }
+            function delete_node(tree, del_node_id) {
+                delete tree.node[del_node_id];
+                tree.node_count--;
+            }
+            function search_node(tree, srh_node_id) {
+                return tree.node[srh_node_id];
+            }
+
+            // canvas 출력
+            Tree.prototype.print = function() {
+                if(this.node_count >= 0) {
+                    if (this.tree_id == "Root") {
+                        create_window(this.tree_id, 50, 50, 100, 50, this.label, "Georgia", 10);
+                        //this.jointUpper = [100, 50]
+                        this.jointLower = [100, 100];
+                    }
+                    else if(this.tree_id.startsWith("Level")) {
+                        var node_num = parseInt(this.tree_id.substring(11));
+                        var level_num = parseInt(this.tree_id.substring(5, 6));
+                        create_window(this.tree_id, -100 + 150*node_num, 50 + 100*level_num, 100, 50, this.label, "Georgia", 10);
+                        this.jointUpper = [-50 + 150*node_num, 50 + 100*level_num];
+                        this.jointLower = [-50 + 150*node_num, 100 + 100*level_num];
+                    }
+                    // child 그리기
+                    for(var node_id in this.node) {
+                        var node = this.node[node_id];
+                        node.print();
+                        ctx.moveTo(this.jointLower[0], this.jointLower[1]);
+                        ctx.lineTo(node.jointUpper[0], node.jointUpper[1]);
+                        ctx.stroke();
+                        ctx.closePath();
+                    }
+                }
+            }
+            /*
+            // 노드 클릭 이벤트
+            function onClickNode(node_id) {
+                var node = document.getElementById(node_id);
+                
+                if(node.style.display == "none") {
+                    node.style.display = "inline";
+                } else {
+                    node.style.display = "none";
+                }
+            }*/
+            function create_window(id, position_x, position_y, width, height, title, font, fontSize) {
+                // Window
+                ctx.fillStyle = "#339933";
+                ctx.fillRect(position_x, position_y, width, height);
+
+                //GUIArray.push([position_x, position_y, width, height, id]);
+
+                // Title
+                ctx.fillStyle = "green";
+                ctx.fillRect(position_x, position_y, width, height/5);
+                    
+                ctx.fillStyle = "white";
+                ctx.textAlign="center";
+                ctx.textBaseline = "middle";
+                ctx.font = fontSize.toString() + "px " + font;
+                ctx.fillText(title, position_x + width/2, position_y + height/10);
+            }
+
+            var tree = new Tree("Root", "Root");
+
+            add_node(tree, new Tree("Level1_Node1", "노드1"));
+            add_node(tree, new Tree("Level1_Node2", "노드2"));
+            add_node(tree, new Tree("Level1_Node3", "노드3"));
+            var node1 = search_node(tree, "Level1_Node1");
+            var node2 = search_node(tree, "Level1_Node2");
+            var node3 = search_node(tree, "Level1_Node3");
+            add_node(node1, new Tree("Level2_Node1", "노드4"));
+            add_node(node1, new Tree("Level2_Node2", "노드5"));
+            add_node(node2, new Tree("Level2_Node3", "노드6"));
+            add_node(node3, new Tree("Level2_Node4", "노드7"));
+            var node5 = search_node(node1, "Level2_Node2");
+            add_node(node5, new Tree("Level3_Node1", "노드8"));
+            add_node(node5, new Tree("Level3_Node2", "노드9"));
+            add_node(node5, new Tree("Level3_Node3", "노드10"));
+            tree.visible = true;
+            tree.print();
+        </script>
+    </div>
+    </body>
+    
+    <!-- Scripts -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+</html>
