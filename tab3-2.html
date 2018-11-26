@@ -1,11 +1,11 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title> HCI 3-2 </title>
+		<title> [HCI] Assignment #3-2 </title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		
+
 	</head>
 
 	<body>
@@ -28,7 +28,7 @@
 					page.style.height = (page.style.visibility == "hidden") ? "auto" : "0px";
 					page.style.visibility = (page.style.visibility == "hidden") ? "visible" : "hidden";
 				}
-				
+
 			function display() {
 
 				// 1-이름
@@ -89,7 +89,7 @@
 					var id_acquisition = "input_acquisition" + i;
 					SkillsEntries += "         [취득일자: " + document.getElementById(id_acquisition).value +"]<br>";
 				}
-				
+
 				// 8. Others
 				var HomePage = document.getElementById("input_homepage").value;
 
@@ -100,33 +100,33 @@
 				var FontUnderline = document.getElementById("input_underline").getAttribute("checked");
 				var FontColor = document.getElementById("input_fontcolor").value;
 				var SheetColor = document.getElementById("input_sheetcolor").value;
-				
-				
+
+
 
 
 				/* * * * * * * * * * * Resume Setting * * * * * * * * * * * * * * */
 				document.getElementById("resume_name").innerHTML = LastName + " " + MiddleName + " " + FirstName;
 
-				document.getElementById("resume_email").innerHTML = EmailAddress; 
+				document.getElementById("resume_email").innerHTML = EmailAddress;
 				document.getElementById("resume_phone").innerHTML = PhoneNumber_1 + "-" + PhoneNumber_2 + "-" + PhoneNumber_3;
 				document.getElementById("resume_office").innerHTML = OfficeNumber_1 + "-" + OfficeNumber_2 + "-" + OfficeNumber_3;
-				
+
 				document.getElementById("resume_address").innerHTML = Address_1 + " " + Address_2;
 				document.getElementById("resume_homepage").innerHTML = HomePage;
-				
+
 
 				document.getElementById("resume_obj").innerHTML = CareerGoal;
 				document.getElementById("resume_edu").innerHTML = EducationEntries;
 				document.getElementById("resume_exp").innerHTML = ExperienceEntries;
 				document.getElementById("resume_skill").innerHTML = SkillsEntries;
-				
+
 				document.getElementById("resume").style.fontSize = FontSize;
 				document.getElementById("resume").style.color = FontColor;
 				document.getElementById("resume").style.backgroundColor = SheetColor;
 				/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-				
-				
-				
+
+
+
 				swap("section");
 				swap("resume");
 			}
@@ -291,10 +291,10 @@
 									function button_edu_click() {
 										var entryNum = $('#edu_entry tbody tr').length + 1;
 										var entry = "<tr>";
-										entry += "<td><input type=\"text\" id=\"input_school" + entryNum + "\" size=\"20\"/></td>"; 
-										entry += "<td><input type=\"text\" id=\"input_major" + entryNum + "\" size=\"20\"/></td>"; 
+										entry += "<td><input type=\"text\" id=\"input_school" + entryNum + "\" size=\"20\"/></td>";
+										entry += "<td><input type=\"text\" id=\"input_major" + entryNum + "\" size=\"20\"/></td>";
 										entry += "<td><input type=\"date\" id=\"input_duration1_edu" + entryNum + "\" size=\"20\"/></td>";
-										entry += "<td><input type=\"date\" id=\"input_duration2_edu" + entryNum + "\" size=\"20\"/></td>"; 
+										entry += "<td><input type=\"date\" id=\"input_duration2_edu" + entryNum + "\" size=\"20\"/></td>";
 										entry += "</tr>";
 										$('#edu_entry').append(entry);
 									}
@@ -303,9 +303,9 @@
 						</tr>
 					</tbody>
 				</table>
-	
+
 				<table id="edu_entry">
-					<thead>	
+					<thead>
 						<td>School</td>
 						<td>Major</td>
 						<td>Duration</td>
@@ -327,7 +327,7 @@
 						</tr>
 					</tbody>
 				</table>
-					
+
 				<!-- 6666666666666666666 -->
 				<table>
 					<tbody>
@@ -347,7 +347,7 @@
 										entry += "<td><input type=\"text\" id=\"input_organization" + entryNum + "\" size=\"20\"/></td>";
 										entry += "<td><input type=\"text\" id=\"input_duties" + entryNum + "\" size=\"20\"/></td>";
 										entry += "<td><input type=\"date\" id=\"input_duration1_exp" + entryNum + "\" size=\"20\"/></td>";
-										entry += "<td><input type=\"date\" id=\"input_duration2_exp" + entryNum + "\" size=\"20\"/></td>" + "</tr>"; 
+										entry += "<td><input type=\"date\" id=\"input_duration2_exp" + entryNum + "\" size=\"20\"/></td>" + "</tr>";
 										$('#exp_entry').append(entry);
 									}
 								</script>
@@ -357,7 +357,7 @@
 				</table>
 
 				<table id="exp_entry">
-					<thead>	
+					<thead>
 						<td>Organization</td>
 						<td>Duties</td>
 						<td>Duration</td>
@@ -379,7 +379,7 @@
 						</tr>
 					</tbody>
 				</table>
-	
+
 				<table>
 					<tbody>
 					<!-- 7777777777777777777777777 -->
@@ -397,7 +397,7 @@
 									function button_skills_click() {
 										var entryNum = $('#skills_entry tbody tr').length + 1;
 										var entry = "<tr>";
-										entry += "<td><input type=\"text\" id=\"input_certificates" + entryNum + "\" size=\"30\"/></td>"; 
+										entry += "<td><input type=\"text\" id=\"input_certificates" + entryNum + "\" size=\"30\"/></td>";
 										entry += "<td><input type=\"date\" id=\"input_acquisition" + entryNum + "\" size=\"20\"/></td>";
 										entry += "<td><input type=\"text\" id=\"input_agency" + entryNum + "\" size=\"20\"/></td>";
 										entry += "</tr>";
@@ -408,9 +408,9 @@
 						</tr>
 					</tbody>
 				</table>
-		
+
 				<table id="skills_entry">
-					<thead>	
+					<thead>
 						<td>Certificates</td>
 						<td>Date of Acquisition&nbsp;</td>
 						<td>Host Agency</td>
@@ -491,7 +491,7 @@
 								Sheet Color
 							</td>
 						</tr>
-					
+
 					<!-- @@@@@@@@@@@@@@@@@@@@@ -->
 						<tr>
 							<td>
@@ -526,7 +526,7 @@
 						<span><i>&nbsp; Office Number : </i></span><span id="resume_office">Office</span><br>
 						<span><i>&nbsp; Address : </i></span><span id="resume_address">Address</span><br>
 						<span><i>&nbsp; Homepage : </i></span><span id="resume_homepage">Homepage</span><br>
-						
+
 					</div>
 					<div align="right" style="width: 200px; height: auto; float: right; margin: 5px 10px">
 						<div align="right">
@@ -536,7 +536,7 @@
 				<hr>
 
 
-				<br><br>				
+				<br><br>
 				<span><b>&nbsp; Objective</b></span><br>
 				<hr>
 				<span>&nbsp;<p id="resume_obj">.</p></span>
@@ -568,7 +568,7 @@
 	</div>
 	</div>
 	</body>
-	
+
 	<!-- Scripts -->
   <script src="assets/js/jquery.min.js"></script>
   <script src="assets/js/browser.min.js"></script>
@@ -576,11 +576,3 @@
   <script src="assets/js/util.js"></script>
   <script src="assets/js/main.js"></script>
 </html>
-
-
-
-
-
-
-
-
