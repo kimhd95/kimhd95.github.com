@@ -1,0 +1,247 @@
+
+<html>
+    <head>
+        <title> HCI 4-1-3 </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    </head>
+    <body>
+        <div id="wrpper">
+            <header id="header">
+                <div class="inner">
+                    <!-- Logo -->
+                    <div style="position: relative; left:280px">
+                        <a href="index.html" class="logo">
+                            <span class="symbol"><img src="images/logo.svg" alt="" /></span>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <!-- Main -->
+
+        <div id="informer">
+          <br><br>&nbsp;&nbsp;&nbsp;SELECT : None.
+        </div>
+        <canvas id="canvas"></canvas>
+        <div style="width: 65%; padding-left:20px;">
+          <hr>
+          <p>사용자가 mouse click을 하면 script 내의
+            addEventListener가 이벤트를 캐치하고,
+            클릭된 위치좌표에 존재하는 GUI object들 중
+            트리의 가장 아래쪽에 있는 object를 리턴하는
+            getSelectedGUIObject 함수를 실행시켜
+            클릭된 object를 식별하여 이에 대한 정보를 띄워준다.
+
+            getSelectedGUIObject 함수는 tree와 x, y 좌표값을
+            parameter로 받고, 깊이우선탐색(DFS) 방식으로 child
+            node를 찾는다.
+            <br><br>
+            위의 canvas에 존재하는 GUI Object Tree의 구조는 다음과 같다.</p>
+          <img src="screenshots/hw4/tree.jpg" width="800px">
+            예를 들어, Window2에 있는 Inner Textbox 안의 영역을 클릭하면
+            해당 영역에 Main Window, Window2, Textbox of Window2, InnerTextbox 4개의 GUI Object가 존재하지만,
+            DFS로 getSelectedGUIObject 함수를 재귀적으로 호출하여 결과적으로 트리 가장 아래쪽에 위치한 Inner Textbox가 선택된다.
+          <hr><br><br>
+        </div>
+        <script>
+            var canvas = document.getElementById('canvas');
+            var ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            // 트리 생성자
+            Tree = function(tree_id, title, type, posX, posY, width, height) {
+                this.tree_id = tree_id;
+                this.title = title;
+                this.type = type;
+                this.node = new Array();
+                this.node_count = 0;
+                this.posX = posX;
+                this.posY = posY;
+                this.width = width;
+                this.height = height;
+            }
+
+            function create_root(tree_id, GUI_Element) {
+                return new Tree(tree_id, GUI_Element);
+            }
+
+            function add_node(tree, added_node) {
+                tree.node[added_node.tree_id] = added_node;
+                tree.node_count++;
+            }
+
+            function delete_node(tree, del_node_id) {
+                delete tree.node[del_node_id];
+                tree.node_count--;
+            }
+
+            function search_node(tree, srh_node_id) {
+                return tree.node[srh_node_id];
+            }
+
+            Tree.prototype.print = function() {
+                if (this.node_count >= 0) {
+                  switch (this.type) {
+                    case "window":
+                      create_window(this.tree_id, this.posX, this.posY, this.width, this.height, this.title, "Georgia", 10);
+                      break;
+                    case "textbox":
+                      create_textbox(this.tree_id, this.posX, this.posY, this.width, this.height, this.title, "Georgia", 10);
+                      break;
+                    case "button":
+                      create_button(this.tree_id, this.posX, this.posY, this.width, this.height, this.title, "Georgia", 10);
+                      break;
+                    default:
+                      break;
+                  }
+
+                  for (var node_id in this.node) {
+                    var node = this.node[node_id];
+                    node.print();
+                  }
+                }
+            }
+
+            function create_window(id, position_x, position_y, width, height, title, font, fontSize) {
+                // Window
+                ctx.fillStyle = "white";
+                ctx.fillRect(position_x, position_y, width, height);
+                ctx.beginPath();
+                ctx.lineWidth="1";
+                ctx.strokeStyle="black"
+                ctx.rect(position_x, position_y, width, height);
+                ctx.stroke();
+
+                // Title
+                ctx.fillStyle = "white";
+                ctx.fillRect(position_x, position_y, width, height/5);
+                ctx.lineWidth="1";
+                ctx.strokeStyle="black"
+                ctx.rect(position_x, position_y, width, height/5);
+                ctx.stroke();
+
+                ctx.fillStyle = "black";
+                ctx.textAlign="center";
+                ctx.textBaseline = "middle";
+                ctx.font = fontSize.toString() + "px " + font;
+                ctx.fillText(title, position_x + width/2, position_y + height/10);
+            }
+
+            function create_textbox(id, position_x, position_y, width, height, title, font, textSize) {
+    	        	ctx.fillStyle = "white";
+    	        	ctx.fillRect(position_x, position_y, width, height);
+                ctx.beginPath();
+                ctx.lineWidth="2";
+                ctx.strokeStyle="blue";
+                ctx.rect(position_x, position_y, width, height);
+                ctx.stroke();
+
+                ctx.fillStyle = "black";
+    	        	ctx.font = textSize.toString() + "px " + font;
+    	        	ctx.textAlign = "center";
+    	        	ctx.textBaseline = "middle";
+    	        	ctx.fillText(title, position_x + width/2, position_y + height/2);
+    		    }
+
+            function create_button(id, position_x, position_y, width, height, title, font, textSize) {
+    	        	ctx.fillStyle = "white";
+                ctx.fillRect(position_x, position_y, width, height);
+                ctx.beginPath();
+                ctx.lineWidth="2";
+                ctx.strokeStyle="red"
+                ctx.stroke();
+                roundRect(ctx, position_x, position_y, width, height, 10, true);
+    	        	ctx.fillStyle = "black";
+    	        	ctx.font = textSize.toString() + "px " + font;
+    	        	ctx.textAlign = "center";
+    	        	ctx.textBaseline = "middle";
+    	        	ctx.fillText(title, position_x + width/2, position_y + height/2);
+    		    }
+
+            function roundRect(ctx, x, y, width, height, radius, fill, stroke) {
+    		        if (typeof stroke == 'undefined')
+    		        	stroke = true;
+    		        if (typeof radius === 'undefined')
+    		        	radius = 5;
+    		        if (typeof radius === 'number')
+    		        	radius = {tl: radius, tr: radius, br: radius, bl: radius};
+    		        else {
+    		        	var defaultRadius = {tl: 0, tr: 0, br: 0, bl: 0};
+    		        	for (var side in defaultRadius)
+    		            	radius[side] = radius[side] || defaultRadius[side];
+    		        }
+    		        ctx.beginPath();
+    		        ctx.moveTo(x + radius.tl, y);
+    		        ctx.lineTo(x + width - radius.tr, y);
+    		        ctx.quadraticCurveTo(x + width, y, x + width, y + radius.tr);
+    		        ctx.lineTo(x + width, y + height - radius.br);
+    		        ctx.quadraticCurveTo(x + width, y + height, x + width - radius.br, y + height);
+    		        ctx.lineTo(x + radius.bl, y + height);
+    		        ctx.quadraticCurveTo(x, y + height, x, y + height - radius.bl);
+    		        ctx.lineTo(x, y + radius.tl);
+    		        ctx.quadraticCurveTo(x, y, x + radius.tl, y);
+    		        ctx.closePath();
+    		        //ctx.fill();
+    		        ctx.stroke();
+    		    }
+
+            function getSelectedGUIObject(tree, x, y) {
+              var childPointer = null;
+              for (var i = 0; i < Object.keys(tree.node).length; i++) {
+                var key = Object.keys(tree.node)[i];
+                childPointer = getSelectedGUIObject(tree.node[key], x, y) || childPointer;
+              }
+
+              if (childPointer == null) {
+                if (tree.posX <= x && x <= tree.posX + tree.width && tree.posY <= y && y <= tree.posY + tree.height)
+                  return tree;
+                else
+                  return null;
+              }
+              return childPointer;
+            }
+
+            var tree = new Tree("root", "Main Window", "window", 20, 20, 800, 500);
+
+            add_node(tree, new Tree("window1", "Window 1", "window", 30, 80, 300, 350));
+            add_node(tree, new Tree("window2", "Window 2", "window", 350, 100, 400, 400));
+
+            add_node(tree.node["window1"], new Tree("win1_textbox1", "TextBox 1", "textbox", 80, 160, 200, 110));
+            add_node(tree.node["window1"], new Tree("win1_textbox2", "TextBox 2", "textbox", 80, 280, 200, 80));
+            add_node(tree.node["window1"], new Tree("win1_button1", "Confirm", "button", 130, 380, 50, 30));
+            add_node(tree.node["window1"], new Tree("win1_button2", "Cancel", "button", 190, 380, 50, 30));
+            add_node(tree.node["window2"], new Tree("win2_textbox1", "Textbox of Window 2", "textbox", 400, 200, 300, 200));
+            add_node(tree.node["window2"], new Tree("win2_button1", "Submit", "button", 450, 420, 200, 50));
+
+            add_node(tree.node["window2"].node["win2_textbox1"], new Tree("win2_tb1_button1", "ㅡ", "button", 620, 210, 30, 30));
+            add_node(tree.node["window2"].node["win2_textbox1"], new Tree("win2_tb1_button2", "X", "button", 660, 210, 30, 30));
+            add_node(tree.node["window2"].node["win2_textbox1"], new Tree("win2_tb1_textbox1", "Inner Textbox", "textbox", 420, 320, 80, 60));
+            add_node(tree.node["window2"].node["win2_button1"], new Tree("win2_tb1_window1", "Submit Message", "window", 250, 420, 180, 90));
+
+            add_node(tree.node["window2"].node["win2_button1"].node["win2_tb1_window1"], new Tree("win2_tb1_win1_button1", "OK", "button", 320, 470, 40, 20));
+            tree.print();
+
+            canvas.addEventListener('click', (event) => {
+              var { offsetX, offsetY } = event;
+              var obj = getSelectedGUIObject(tree, offsetX, offsetY);
+              if (obj) {
+                document.getElementById('informer').innerHTML = "<br><br>&nbsp;&nbsp;&nbsp;SELECT : " + obj.title
+                                                              + "&nbsp;&nbsp;&nbsp;&nbsp;[ ID : " + obj.tree_id +" / Type : " + obj.type + " ]";
+              } else {
+                document.getElementById('informer').innerHTML = "<br><br>&nbsp;&nbsp;&nbsp;SELECT : None.";
+              }
+            });
+        </script>
+    </div>
+    </body>
+
+    <!-- Scripts -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+</html>
