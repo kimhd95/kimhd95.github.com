@@ -1,0 +1,102 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>[HCI] Assignment #4</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+
+<body class="is-preload">
+  <div id="wrpper">
+    <header id="header">
+      <div class="inner">
+        <!-- Logo -->
+        <div style="position: relative; left:280px">
+          <a href="index.html" class="logo">
+             <span class="symbol"><img src="images/logo.svg" alt="" /></span>
+             <span class="title">Human-Computer Interaction</span>
+          </a>
+        </div>
+        <!-- Nav -->
+        <nav>
+          <ul>
+            <li><a href="#menu">Menu</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Menu -->
+    <nav id="menu">
+      <h2>Menu</h2>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="tab1.html">Assignment #1</a></li>
+        <li><a href="tab2.html">Assignment #2</a></li>
+        <li><a href="tab3.html">Assignment #3-1</a></li>
+        <li><a href="tab3-2.html">Assignment #3-2</a></li>
+        <li><a href="tab4-1-1.html">Assignment #4-1-1</a></li>
+        <li><a href="tab4-1-2.html">Assignment #4-1-2</a></li>
+         <li><a href="tab4-1-3.html">Assignment #4-1-3</a></li>
+        <li><a href="tab4-2.html">Assignment #4-2</a></li>
+         <li><a href="tab4-3.html">Assignment #4-3</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main -->
+    <div id="main">
+      <div class="inner">
+        <div style="position: relative; left:280px">
+          <h1 style="color:#dc7e90">ASSIGNMENT &nbsp; #4-3</h1>
+        </div>
+        <div class="content" style="padding:0px 260px 0px 260px;">
+        	<br><br>
+          	<h1>Evaluation of the Interface Design</h1><br><br>
+          	<p>
+          		<i>( ※ 평가 대상은 사이버국방학과 구정현 학생입니다. )</i><br><br><br>
+          		먼저, 정렬된 사진과 AI를 통한 분류를 선택할 수 있는 화면이다. 
+			</p>
+          	<img src="screenshots/hw4/eval1.jpg" width="600" /><br>
+          	<p>
+          		&nbsp;&nbsp;&nbsp;이 화면에 있는 인터페이스를 살펴보면, 크게 Preview, 사진목록, Sort, 그 외 Share 및 Close 기능에 해당하는 인터페이스가 존재한다. <br>
+				&nbsp;&nbsp;&nbsp;먼저 사진목록을 보여주는 영역에서, 우측에 보면 +버튼이 있는데, 사각형 형태의 사진들 속에 비교적 작고 동그란 모양의 버튼이 위치해 Inconsistent하게 느껴진다. 동그라미 버튼 대신 사진들의 크기와 같은 사각형 테두리로 대체하거나 +아이콘만으로 제공되면 Consistency를 확보할 수 있을 것 같다. 또한 사진 목록 영역의 크기가 Sort 인터페이스가 차지하는 공간과 거의 비슷하거나 좀 더 작은 것으로 보이는데, 이는 사진의 개수가 많아지면 문제가 될 것으로 보인다. 화면에서만 보면 사진이 6개 이상으로 많아지면 어떻게 이를 처리하여 보여주는지 제시되어 있지 않은데, 스크롤 형식으로 처리하려 해도 +버튼 때문에 해결이 힘들 것으로 보인다. 따라서 이를 보완할 인터페이스가 추가적으로 제공되어야 한다고 생각된다. <br>
+				&nbsp;&nbsp;&nbsp;다음으로, Sort 기능에 대한 인터페이스를 살펴보면, Sort 기준을 선택하는 창이 불필요하게 너무 큰 공간을 차지한다고 느껴진다. 오른쪽의 여백을 제거하고 display되는 엔트리 수를 5개에서 3개정도로 줄이면 더욱 효율적으로 인터페이스 공간을 활용할 수 있을 것이다.<br>
+				&nbsp;&nbsp;&nbsp;마지막으로, Sort 창 하단에 Share 버튼이 위치하는데, 서로 기능적 연관성도 없을 뿐더러 버튼의 위치도 어중간하다는 느낌을 준다. 따라서 이를 Preview 상단바로 옮기거나 Preview영역에 커서를 위치시키면 숨어있던 버튼이 display되는 등의 방식으로 인터페이스를 구성했으면 더욱 좋았을 것 같다. 또한 X버튼은 우측하단보다는 우측상단에 위치하는 것이 좀 더 자연스러울 것이라고 생각한다.<br><br><br>
+
+				두번째로, 사진을 선택하였을 경우 편집할 수 있는 화면이다.
+			</p>
+          	<img src="screenshots/hw4/eval2.jpg" width="600" /><br>
+	        <p>
+	         	&nbsp;&nbsp;&nbsp;사진 편집을 직접 조작하지 않고 스크롤 바를 통해서 정도만 조절할 수 있도록 디자인하여 사용자의 cognitive/ergonomic requirement를 적절히 충족시켰다. 그러나 Undo버튼의 위치가 부적합하다고 생각된다. 사용자들은 편집을 마친 후 Save버튼을 클릭하거나 원본으로 되돌릴 때 Undo 버튼을 찾을 것이다. 따라서 사진 편집 이후 취해지는 Save와 Undo 버튼은 서로 가까이에 위치해야 할 것이다. 그러므로 Undo의 위치를 Compare 옆 대신 Save버튼 옆으로 옮기면 사용자의 Task 수행 속도를 향상시키는 데 도움을 줄 것이다.<br><br><br>
+
+	         	다음으로, 필터를 설정하는 화면이다.
+	         </p>
+          	<img src="screenshots/hw4/eval3.jpg" width="600" /><br>
+          	<p>
+          		&nbsp;&nbsp;&nbsp;이 화면에서는 Filter Option 영역과 사진을 보여주는 영역의 비율이 적절하게 구성되었다고 생각한다. 그러나 한 가지 이해가 가지 않는 것은 Save버튼 옆에 위치한 파란색 버튼이다. 다른 버튼들과는 달리 Text가 아닌 아이콘으로 제공되고, 색감 때문에 distinguishability는 높지만 전체적인 Consistency를 파괴한다. 따라서 저 버튼에 대한 중요도가 엄청 높지 않은 이상 이에 대한 수정이 필요할 것으로 보인다.<br><br><br>
+
+				마지막으로, 사진에 장소, 시간, 텍스트 등의 정보를 입력할 수 있는 화면이다.
+          	</p>
+          	<img src="screenshots/hw4/eval4.jpg" width="600" /><br>
+          	<p>
+          		&nbsp;&nbsp;&nbsp;사진 정보를 직접 입력할 수 있는 창인데, 화면에서만 보면 어떻게 입력이 이루어지는 지 파악하기가 어렵다. 또한 Add-ons 하단에 위치한 색상들은 어떤 의도로 존재하는지 이해할 수 없었다.<br><br><br>
+
+          		&nbsp;&nbsp;&nbsp;총평하자면, 사용자가 기능들을 쉽게 사용할 수 있도록 인터페이스를 잘 구성하였지만, 버튼의 위치가 비효율적이거나 모양 또는 색상 등이 Inconsistent하게 구성되어 있는 부분들이 있었다. 또한 어떤 기능에 대한 인터페이스를 의미하는지 모호한 요소들이 많아서 평가하기가 힘든 점이 있었다. 따라서 디자인을 조금 더 구체화하고, 각 인터페이스 구성요소들의 위치나 색상 등을 재조정하면 훨씬 더 개선될 것이라 생각한다.
+          	</p>
+        </div>
+      </div>
+	 </div>
+	</div>
+
+
+  <!-- Scripts -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
